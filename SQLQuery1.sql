@@ -1,0 +1,37 @@
+﻿CREATE DATABASE QLSinhVien
+GO
+
+USE QLSinhVien
+GO
+
+CREATE TABLE SinhVien
+(
+	MaSV VARCHAR(10) PRIMARY KEY,
+	HoTen NVARCHAR(50) NOT NULL,
+	NgaySinh DATE NOT NULL,
+	Lop NVARCHAR(50) NOT NULL,
+	GioiTinh BIT NOT NULL
+)
+GO
+
+CREATE TABLE Account
+(
+	TaiKhoan VARCHAR(50) PRIMARY KEY,
+	MatKhau VARCHAR(50) NOT NULL
+)
+GO
+
+
+INSERT SinhVien VALUES ('00001', N'Nguyễn Văn A', '01/01/2001', N'CNT61ĐH', 1), 
+('00002', N'Nguyễn Thị B', '02/02/2002', N'KPM62ĐH', 0), 
+('00003', N'Lê Văn C', '03/03/2003', N'CNT62CL', 1),
+('00004', N'Trần Thị D', '04/04/2004', N'TTM63CL', 0)
+GO
+
+INSERT Account VALUES('admin', '1')
+GO
+
+SELECT * FROM dbo.SinhVien
+SELECT * FROM dbo.Account
+
+SELECT * FROM dbo.SinhVien WHERE MaSV LIKE '00%'
